@@ -10,3 +10,12 @@ time.sleep(2)
 print("\nAnd here I thought " + name + " wasn't up for the challenge of facing me!\n")
 time.sleep(2)
 print("\nWell, Harold...Harold, was it? " + name + " , I know, I know. I've considered it and will allow you to play the game.\n")
+print("\nBut before we start...")
+time.sleep(1)
+print("\n" + name + " Haroldsen, how about before I devour you with the shere sight of me, we start off with a riddle?\n")
+riddle = input("")
+## Start the game
+
+## Random words per trial
+
+## 
