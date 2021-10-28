@@ -14,8 +14,21 @@ print("\nBut before we start...")
 time.sleep(1)
 print("\n" + name + " Haroldsen, how about before I devour you with the shere sight of me, we start off with a riddle?\n")
 riddle = input("")
+
 ## Start the game
 
 ## Random words per trial
 
-## 
+## Already guessed words
+
+## Play again
+
+## Words list
+words = ['dragon', 'golden', 'treasure', 'diamond', 'mountain', 'coins', 'engulfed', 'destruction', 'demoliished']
+
+## Hangman pic
+
+## Check if right or wrong
+
+## Check won
+
