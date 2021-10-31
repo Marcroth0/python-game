@@ -1,5 +1,6 @@
 import random
 wordsL1 = ["pasta", "spaghetti", "maccheroni"]
+wordsL2 = ["pasteroni", "maccharetti", "cannelloncelli"]
 
 class HangmanGame: 
     def __init__(self, wordsList, lives):
@@ -7,45 +8,79 @@ class HangmanGame:
         self.plain_text = random.choice(wordsList)
         self.hidden = ("_" * len(self.plain_text))
         self.lives = lives
+        self.tries = []
 
     def updateHidden(self, index):
         self.hidden = self.hidden[:index] + self.plain_text[index] + self.hidden[index+1:]
 
 def main():
     ## Check if they actually want to play, if so:
-    game = HangmanGame(wordsL1, 5)
-    tries = []
-    print(game.plain_text)
+    startGame(wordsL1, 5)
+    
+
+def startGame(listOfWords, lives):
+    game = HangmanGame(listOfWords, lives)
+    print("----------- THE GAME BEGINS----------")
+    print("\n")
     print(game.hidden)
+    print("\n")
+    print(f"Lives: {game.lives}")
+    print("\n")
     while(True):
         guess = input("Please enter a guess, it must be a letter!, go ahead: ")
-        matchedIndexes = (checkMatch(game, guess))
-        if len(matchedIndexes):
-            updateDisplayedWord(game, matchedIndexes)
-        else:
-            tries.append(guess)
-            game.lives -= 1
-        
-        winOrLose(game)
-        print(game.hidden)
-        print("Tried letters: ")
-        print(tries)
-        print(f"Lives: {game.lives}")
+        if validateInput(game, guess):
+            matchedIndexes = (checkMatch(game, guess))
+            if len(matchedIndexes):
+                updateDisplayedWord(game, matchedIndexes)
+            else:
+                game.tries.append(guess)
+                game.lives -= 1
+            
+            winOrLose(game)
+            print("\n")
+            print(game.hidden)
+            print("\n")
+            print("Tried letters/words: ")
+            print(game.tries)
+            print("\n")
+            print(f"Lives: {game.lives}")
 
 def checkMatch(game, guess):
     return [i for i, ltr in enumerate(game.plain_text) if ltr == guess]
 
 def updateDisplayedWord(game, list):
-    print(list)
     for idx in list:
         game.updateHidden(idx)
 
 def winOrLose(game):
     if (game.hidden == game.plain_text):
-        print("Congrats, you won!")
+        print(f"Congrats, you won! The word was {game.plain_text}")
+        playAgain = input("Wanna go ahead to the next level(y/n): ")
+        if playAgain == "y":
+            startGame(wordsL2, 3)
         exit(0)
     elif(game.lives == 0):
         print("You lost, poor idiot")
         exit(0)
+
+def validateInput(game, guess):
+    if not guess.isalpha():
+        print("Please enter a letter [a, b, c ..]: ")
+        return False
+    elif len(guess) > 1:
+        answer = input("Are you sure you want to guess the whole word? It's gonna cpst you lives! (y/n): ")
+        return False if answer == "n" else checkMatchWord(game, guess)
+    else:
+        return True
+
+def checkMatchWord(game, guess):
+    if (guess == game.plain_text):
+        print(f"Congrats, you won! The word was {game.plain_text}")
+        exit(0)
+    else:
+        print("You guessed the wrong word! Try again")
+        game.lives -= 1
+        game.tries.append(guess)
+        print(game.lives)
 
 main()
