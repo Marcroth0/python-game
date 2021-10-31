@@ -2,13 +2,10 @@ import random
 import time
 
 wordsL1 = ['DRAGON', 'GOLDEN', 'TREASURE', 'DIAMOND', 'MOUNTAIN', 'COINS', 'ENGULFED', 'DESTRUCTION', 'DEMOLISHED']
-
-
-lives = 5
+wrong_guesses=0
+global lives
 guessed_char = []
-already_guessed = False
-wrong_guesses = 0
-word = random.choice(wordsL1)
+attempts = []
 
 ## A welcoming message and invite to play
 def main():
@@ -29,37 +26,25 @@ def main():
     # else:
     #     print('Bye Felicia')
     #     exit(0)
-    startgame()
+    myword = random_words(wordsL1) 
+    lives = 5
+    
 
-    while wrong_guesses < lives and random_words != word:
-        print(HANGMAN[lives])
+    while wrong_guesses < lives:
+        #print(hangman_lives[lives])
         GUESS = input("Oh, do try me with a letter: ")
-        charMatch(GUESS.upper())
+        charMatch(hidden_word, GUESS.upper(), lives)
 
 ## Check if the char matches
-def charMatch(guess):
-    guessed_char.append(guess)
-    print(word)
-    for i in range(len(word)):     
-        if word[i] == guess or word[i] in guessed_char:
-            print(word[i], end="")
-        else:
-            print("_", end="")
-
-
-        
+def charMatch(word, guess, lives):
 
 
 
 
-            
-        
+
 
 
 ## Start the game
-def startgame():
-    myword = random_words(wordsL1)    
-    print("_" * len(myword))
 
 ## Random words
 def random_words(list_words):
@@ -67,12 +52,17 @@ def random_words(list_words):
     return list_words[0]
 
 ## Play again
+def play_again():
+    replay_question = input("How about another game? Enter 'Y' for yes or 'N' for no.")
+    if replay_question == 'y':
+        startgame()
+    else:
+        print("Perhaps another time.")
 
-## Words list
-wordsL2 = ['dragon', 'golden', 'treasure', 'diamond', 'mountain', 'coins', 'engulfed', 'destruction', 'demoliished']
-## Hangman pic
 
-HANGMAN = ['''
+def hangman_lives(lives):
+    
+    hangman_images =  ['''
   +---+
   |   |
       |
@@ -123,9 +113,7 @@ HANGMAN = ['''
       |
 =========''']
 
-## Check if right or wrong
-
-## Check won
+    return hangman_images[lives]
 
 
 main()
