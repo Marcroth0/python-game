@@ -15,7 +15,7 @@ class HangmanGame:
 
 def main():
     ## Check if they actually want to play, if so:
-    startGame(wordsL1, 5)
+    startGame(wordsL1, 7)
     
 
 def startGame(listOfWords, lives):
@@ -34,7 +34,9 @@ def startGame(listOfWords, lives):
                 updateDisplayedWord(game, matchedIndexes)
             else:
                 game.tries.append(guess)
+                print(HANGMANPICS[-game.lives])
                 game.lives -= 1
+                
             
             winOrLose(game)
             print("\n")
@@ -70,6 +72,10 @@ def validateInput(game, guess):
     elif len(guess) > 1:
         answer = input("Are you sure you want to guess the whole word? It's gonna cpst you lives! (y/n): ")
         return False if answer == "n" else checkMatchWord(game, guess)
+    elif guess in game.tries or guess in game.hidden:
+        print("You already tried that letter, silly. ")
+
+        return False
     else:
         return True
 
@@ -83,4 +89,56 @@ def checkMatchWord(game, guess):
         game.tries.append(guess)
         print(game.lives)
 
+HANGMANPICS = ['''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
+
 main()
+
