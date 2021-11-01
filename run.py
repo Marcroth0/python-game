@@ -41,7 +41,7 @@ def startGame(listOfWords, lives):
             print(game.hidden)
             print("\n")
             print("Tried letters/words: ")
-            print(game.tries)
+            print(*game.tries, sep = ", ")
             print("\n")
             print(f"Lives: {game.lives}")
 
