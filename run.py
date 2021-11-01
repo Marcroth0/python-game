@@ -1,5 +1,4 @@
 import random
-import time
 wordsL1 = ["dragon", "engulfed", "diamonds", "jewels", "treasure", "destruction"]
 wordsL2 = ["phenomenon", "onomatopoeia", "disinterested", "irregardless"]
 
@@ -16,12 +15,17 @@ class HangmanGame:
         self.hidden = self.hidden[:index] + self.plain_text[index] + self.hidden[index+1:]
 
 def main():
-    choice = input("Easy or hard? Enter 'easy' for Easy, and 'hard' for Hard: ").upper()
-    ## Check if they actually want to play, if so:
-    if choice == 'EASY':
-        startGame(wordsL1, HANGMANPICS_EASY)
-    elif choice == 'HARD':
-        startGame(wordsL2, HANGMANPICS_HARD)
+    while True:
+        choice = input("Easy or hard? Enter 'easy' for Easy, and 'hard' for Hard: ").upper()
+        ## Check if they actually want to play, if so:
+        if choice == 'EASY':
+            startGame(wordsL1, HANGMANPICS_EASY)
+        elif choice == 'HARD':
+            startGame(wordsL2, HANGMANPICS_HARD)
+        elif choice == 'EXIT':
+            exit(0)
+        else:
+            print("Please enter (easy/hard) or (exit) to quit")
 
 
 def startGame(listOfWords, lives):
@@ -29,7 +33,7 @@ def startGame(listOfWords, lives):
     print("----------- THE GAME BEGINS----------")
     print("\n")
     
-    while(True):
+    while(game.lives > 0 and game.hidden != game.plain_text):
         print(game.displayedImage[-game.lives-1])
         print("\n")
         print(game.hidden)
@@ -63,45 +67,48 @@ def updateDisplayedWord(game, list):
     for idx in list:
         game.updateHidden(idx)
 
+def playAgain():
+    playAgain_question = input("Wanna play again? (y/n): ").upper()
+    if playAgain_question == "Y":
+        return
+    elif playAgain_question == "N":
+        exit(0)
+
 def winOrLose(game):
     if (game.hidden == game.plain_text):
         print(f"Congrats, you won! The word was {game.plain_text}")
-        playAgain = input("Wanna go ahead to the next level(y/n): ")
-        if playAgain == "y":
-            main()
-        exit(0)
+        playAgain()
     elif(game.lives == 0):
         print(game.displayedImage[-1])
         print(f"You lost, poor idiot. The word was {game.plain_text}")
-        playAgain = input("Wanna go ahead to the next level(y/n): ")
-        if playAgain == "y":
-            main()
-        exit(0)
+        playAgain()
 
 def validateInput(game, guess):
     if not guess.isalpha():
         print("Please enter a letter [a, b, c ..]: ")
         return False
+    elif guess == "exit":
+        exit(0)
     elif len(guess) > 1:
-        answer = input("Are you sure you want to guess the whole word? It's gonna cpst you lives! (y/n): ")
+        answer = input("Are you sure you want to guess the whole word? It's gonna cost you lives! (y/n): ")
         return False if answer == "n" else checkMatchWord(game, guess)
     elif guess in game.tries or guess in game.hidden:
         print("You already tried that letter, silly. ")
-
         return False
     else:
         return True
 
 def checkMatchWord(game, guess):
     if (guess == game.plain_text):
+        game.hidden = game.plain_text
         print(f"Congrats, you won! The word was {game.plain_text}")
-        
-        exit(0)
+        playAgain()
     else:
         print("You guessed the wrong word! Try again")
         game.lives -= 1
         game.tries.append(guess)
         print(game.lives)
+
 
 HANGMANPICS_EASY = ['''
            ______
