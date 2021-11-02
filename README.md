@@ -1,31 +1,103 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Python Hangman Game
 
-Welcome USER_NAME,
+![amiresponsive]()
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+Live link: 
 
-## Reminders
+### Table of Contents
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+1. [Goals](#goals)
+    1. [Organisational Goals](#organisation-goals)
+    2. [User Stories](#user-stories)
+2. [Design](#design)
+    1. [Box Shadow](#box-shadow)
+    2. [Color palette day](#color-palette-day)
+    3. [Color palette night](#color-palette-night)
+3. [Planning](#planning)
+    1. [Fonts](#fonts)
+4. [Testing](#testing)
+    1. [Lighthouse](#lighthouse)
+    2. [Validator](#validator-testing)
+5. [Credits](#credits)
 
-## Creating the Heroku app
+## Goals
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+### Organisation Goals
 
-1. `heroku/python`
-2. `heroku/nodejs`
+-   
+-   
+-   
+-   
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### User Stories
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+1. As a user I want to easily know the rules of the game
+2. As a user I want to easily understand how to start the game
+3. As a user I need to know what my score is
+4. As a user I need to know when the game has been won
+5. 
 
-Connect your GitHub repository and deploy as normal.
+## Strategy
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
------
-Happy coding!
+## Design
+
+
+
+
+
+### Planning
+
+
+
+## Testing
+
+
+**Mobile**
+
+-   Moto G4 (360x640)
+-   Galaxy S5 (360x640)
+-   Pixel 2 (411x731)
+-   Pixel 2 XL (411x823)
+-   iPhone 5/SE (320x568)
+-   iPhone 6/7/8 (375x667)
+-   iPhone 6/7/8 Plus (414x736)
+-   iPhone X (375x812)
+-   iPad (768x1024)
+-   iPad Pro (1024x1366)
+
+**Browsers:**
+
+-   Chrome
+-   Mozilla Firefox
+-   Safari
+-   Edge
+
+### Functional testing
+
+### Lighthouse
+
+![lighthouse](assets/images/lighthouse-memory-readme.png)
+
+### Validator Testing
+
+## Unfixed Bugs
+
+
+## Improvements
+
+## Features Left to Implement
+
+
+## Deployment
+
+
+## Credits
+
+-   
+-   A general shout-out to [StackOverflow](https://stackoverflow.com/)
+
+## Media
+
+-   
