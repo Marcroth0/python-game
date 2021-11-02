@@ -1,6 +1,9 @@
 import random
+
+
 wordsL1 = ["DRAGON", "ENGULFED", "DIAMONDS", "JEWELS", "TREASURE", "DESTRUCTION"]
 wordsL2 = ["PHENOMENON", "ONOMATOPOEIA", "DISINTERESTED", "IRREGARDLESS"]
+
 
 class HangmanGame: 
     def __init__(self, wordsList, imageArray):
@@ -14,10 +17,11 @@ class HangmanGame:
     def updateHidden(self, index):
         self.hidden = self.hidden[:index] + self.plain_text[index] + self.hidden[index+1:]
 
+
 def main():
     while True:
         choice = input("Easy or hard? Enter 'easy' for Easy, and 'hard' for Hard: ").upper()
-        ## Check if they actually want to play, if so:
+        #Check if they actually want to play, if so:
         if choice == 'EASY':
             startGame(wordsL1, HANGMANPICS_EASY)
         elif choice == 'HARD':
@@ -52,7 +56,6 @@ def startGame(listOfWords, lives):
                 game.tries.append(guess)
                 game.lives -= 1
                 
-            
             winOrLose(game)
             # print("\n")
             # print(game.hidden)
@@ -60,12 +63,15 @@ def startGame(listOfWords, lives):
             # print("\n")
             # print(f"Lives: {game.lives}")
 
+
 def checkMatch(game, guess):
     return [i for i, ltr in enumerate(game.plain_text) if ltr == guess]
+
 
 def updateDisplayedWord(game, list):
     for idx in list:
         game.updateHidden(idx)
+
 
 def playAgain():
     playAgain_question = input("Wanna play again? (y/n): ").upper()
@@ -73,6 +79,7 @@ def playAgain():
         return
     elif playAgain_question == "N":
         exit(0)
+
 
 def winOrLose(game):
     if (game.hidden == game.plain_text):
@@ -82,6 +89,7 @@ def winOrLose(game):
         print(game.displayedImage[-1])
         print(f"You lost, poor idiot. The word was {game.plain_text}")
         playAgain()
+
 
 def validateInput(game, guess):
     if not guess.isalpha():
@@ -97,6 +105,7 @@ def validateInput(game, guess):
         return False
     else:
         return True
+
 
 def checkMatchWord(game, guess):
     if (guess == game.plain_text):
@@ -190,6 +199,7 @@ HANGMANPICS_EASY = ['''
          `--------`
 ''']
 
+
 HANGMANPICS_HARD = ['''
            ______
         .-"      "-.
@@ -256,5 +266,6 @@ HANGMANPICS_HARD = ['''
         \          /
          `--------`
 ''']
-main()
 
+
+main()
