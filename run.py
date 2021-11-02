@@ -1,6 +1,6 @@
 import random
-wordsL1 = ["dragon", "engulfed", "diamonds", "jewels", "treasure", "destruction"]
-wordsL2 = ["phenomenon", "onomatopoeia", "disinterested", "irregardless"]
+wordsL1 = ["DRAGON", "ENGULFED", "DIAMONDS", "JEWELS", "TREASURE", "DESTRUCTION"]
+wordsL2 = ["PHENOMENON", "ONOMATOPOEIA", "DISINTERESTED", "IRREGARDLESS"]
 
 class HangmanGame: 
     def __init__(self, wordsList, imageArray):
@@ -43,7 +43,7 @@ def startGame(listOfWords, lives):
         print("\n")
         print(f"Lives: {game.lives}")
         print("\n")
-        guess = input("Please enter a guess, it must be a letter!, go ahead: ")
+        guess = input("Please enter a guess, it must be a letter!, go ahead: ").upper()
         if validateInput(game, guess):
             matchedIndexes = (checkMatch(game, guess))
             if len(matchedIndexes):
