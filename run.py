@@ -20,6 +20,13 @@ class HangmanGame:
 
 
 def main():
+    print( """ _   _______ _     _______  ___  _   _ 
+              | | / |  _  | |   ( |  _  \/ _ \| \ | |
+              | |/ /| | | | |   |/| | | / /_\ |  \| |
+              |    \| | | | |     | | | |  _  | . ` |
+              | |\  \ \_/ | |____ | |/ /| | | | |\  |
+              \_| \_/\___/\_____/ |___/ \_| |_\_| \_/
+                                       """)
     print("At last! At last a challenger appears...")
     time.sleep(1)
     print("Many have come, none have left. What makes you think you will be the first to \ndefeat the Skull of Kol'dan?")
@@ -37,7 +44,7 @@ def main():
     print("The rules are simple, even for a simpleton:\n- A word is to be found.\n- A simple letter per proposal.\n- Perhaps in the end you will be crowned.\n- A set of lives at your disposal. ")
     time.sleep(1)
     print("\n")
-    
+
     while True:
         
         choice = input("Easy or hard? Enter 'easy' for Easy, and 'hard' for Hard: ").upper()
