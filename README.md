@@ -35,20 +35,26 @@ Live link:
 2. As a user I want to easily understand how to start the game
 3. As a user I need to know what my score is
 4. As a user I need to know when the game has been won
-5. 
+
+
+### Development Plane
+
+The end goal is to create a smooth-running game that lets the player with ease dive into the world of word-guessing. 
 
 ## Strategy
 
-
-
-## Design
-
+The strategy is to create a clear and funny game based on the classic Hangman with a few twists. The twists being a scary/vindictive/halloween-ey theme. In order to complete the game the user stories had to be answered. 
 
 
 
 
 ### Planning
 
+The planning phase was made in stages: 
+
+## Flowcharts
+The over-all birds-eye view of the game is as below, in which you'll find the general flow of the game: 
+![general-flowchart](assets/images/flowchart-big-readme.png)
 
 
 ## Testing
