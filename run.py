@@ -29,7 +29,10 @@ def main():
     time.sleep(1)
     print("Oh, another " + name +  " have already perished upon the sight of me. Will you be the second?")
     time.sleep(1)
-
+    print("If you should ever fear, typing 'exit' will always let you out...Somewhat unscaved.")
+    time.sleep(1.5)
+    print("The rules are simple, even for a simpleton:\n- A word is to be found.\n- A simple letter per proposal.\n- Perhaps in the end you will be crowned.\n- A set of lives at your disposal. ")
+    time.sleep(1)
 
     while True:
         
@@ -40,7 +43,7 @@ def main():
         elif choice == 'HARD':
             startGame(wordsL2, HANGMANPICS_HARD, name)
         elif choice == 'EXIT':
-            print(f"Sad to see you go.")
+            print(f"Sad to see you go, " + name + ". All things must come to an end.")
             exit(0)
         else:
             print("Please enter (easy/hard) or (exit) to quit")
