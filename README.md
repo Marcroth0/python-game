@@ -50,32 +50,55 @@ The strategy is to create a clear and funny game based on the classic Hangman wi
 
 ### Planning
 
-The planning phase was made in stages: 
+The planning phase was made in stages, starting off with a generalised overview and then advancing into specifics. 
 
 ## Flowcharts
-
+<br>
 The over-all birds-eye view of the game is as below, in which you'll find the general flow of the game: 
+<details close>
+<summary>General Flowchart</summary>
+
 ![general-flowchart](assets/images/flowchart-big-readme.png)
 
+</details>
+<br>
 The puppetmaster behind the game - in order to make the game easily upgradable with difficulties i added a hangman class which controls it:
+<details close>
+<summary>Class Flowchart</summary>
+
 ![class-flowchart](assets/images/flowchart-class-readme.png)
 
+</details>
+<br>
+
+In order to upgrade the game with more wordslists or difficulties all that was needed was to make the list and apply it in the parameter of the intended difficulty in the code. 
+
+Example:
+
+```
+if choice == 'EASY':
+            startGame(wordsL1, HANGMANPICS_EASY, name)
+        elif choice == 'HARD':
+            startGame(wordsL2, HANGMANPICS_HARD, name)
+```
+
+This means if you'd like to add another difficulty, let's say "INSANE" all you have to do is:
+1. Add a wordsL3 list of whatever words you want in the INSANE-difficulty
+2. Add whatever imagery (HANGMANPICS), e.g removing or adding levels, and name it HANGMANPICS_INSANE
+3. Extend the above code with to:
+
+```
+if choice == 'EASY':
+            startGame(wordsL1, HANGMANPICS_EASY, name)
+        elif choice == 'HARD':
+            startGame(wordsL2, HANGMANPICS_HARD, name)
+        elif choice == 'INSANE':
+            startGame(wordsL3, HANGMANPICS_INSANE, name)
+```
+
+Then the class with do the rest, meaning all other functions will be reusable. 
 
 ## Testing
-
-
-**Mobile**
-
--   Moto G4 (360x640)
--   Galaxy S5 (360x640)
--   Pixel 2 (411x731)
--   Pixel 2 XL (411x823)
--   iPhone 5/SE (320x568)
--   iPhone 6/7/8 (375x667)
--   iPhone 6/7/8 Plus (414x736)
--   iPhone X (375x812)
--   iPad (768x1024)
--   iPad Pro (1024x1366)
 
 **Browsers:**
 
