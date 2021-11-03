@@ -96,7 +96,7 @@ def validateInput(game, guess):
         print("Please enter a letter [a, b, c ..]: ")
         return False
     elif guess == "EXIT":
-        print("Sad to see you go.")
+        print(f"Sad to see you go, {game.name}. All things must come to an end.")
         exit(0)
     elif len(guess) > 1:
         answer = input(f"Are you sure you want to guess the whole word, {game.name}? It's gonna cost you lives! (y/n): ")
