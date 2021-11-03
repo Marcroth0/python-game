@@ -53,8 +53,12 @@ The strategy is to create a clear and funny game based on the classic Hangman wi
 The planning phase was made in stages: 
 
 ## Flowcharts
+
 The over-all birds-eye view of the game is as below, in which you'll find the general flow of the game: 
 ![general-flowchart](assets/images/flowchart-big-readme.png)
+
+The puppetmaster behind the game - in order to make the game easily upgradable with difficulties i added a hangman class which controls it:
+![class-flowchart](assets/images/flowchart-class-readme.png)
 
 
 ## Testing
