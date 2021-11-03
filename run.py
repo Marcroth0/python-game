@@ -77,8 +77,7 @@ def startGame(listOfWords, lives, name):
                 updateDisplayedWord(game, matchedIndexes)
             else:
                 game.tries.append(guess)
-                game.lives -= 1
-                print(f"Hah! {game.name}, Look at you trying your best!")    
+                game.lives -= 1    
             displayInfo(game)
             winOrLose(game)
             
