@@ -146,6 +146,15 @@ def displayInfo(game):
     print(*game.tries, sep = ", ")
     print(f"Lives: {game.lives}")
     print("\n")
+    if game.lives == 3:
+        print("Three little lives went out for a stroll...")
+    elif game.lives == 2:
+        print(f"THIS IS THE TIME FOR PANIC, {game.name}!")
+        print("Is this the last breath before the neverending plunge?")
+    elif game.lives == 1: 
+        print("*Gulp*")
+
+
 
 HANGMANPICS_EASY = ['''
            ______
