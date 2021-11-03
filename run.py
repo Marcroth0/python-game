@@ -144,7 +144,6 @@ def displayInfo(game):
     print("\n")
     print("Tried letters/words: ")
     print(*game.tries, sep = ", ")
-    print("\n")
     print(f"Lives: {game.lives}")
     print("\n")
 
