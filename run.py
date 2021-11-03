@@ -1,39 +1,52 @@
 import random
-
+import time
 
 wordsL1 = ["DRAGON", "ENGULFED", "DIAMONDS", "JEWELS", "TREASURE", "DESTRUCTION"]
 wordsL2 = ["PHENOMENON", "ONOMATOPOEIA", "DISINTERESTED", "IRREGARDLESS"]
 
 
 class HangmanGame: 
-    def __init__(self, wordsList, imageArray):
+    def __init__(self, wordsList, imageArray, name):
         self.wordsToPlay = wordsList
         self.plain_text = random.choice(wordsList)
         self.hidden = ("_" * len(self.plain_text))
         self.tries = []
         self.displayedImage = imageArray
         self.lives = len(self.displayedImage) -1
+        self.name = name
 
     def updateHidden(self, index):
         self.hidden = self.hidden[:index] + self.plain_text[index] + self.hidden[index+1:]
 
 
 def main():
+    print("At last! At last a challenger appears...")
+    time.sleep(1)
+    print("Many have come, none have left. What makes you think you will be the first to defeat the Skull of Kol'dan?")
+    time.sleep(1)
+    print("Centuries upon centuries I've feasted on the souls of these trials. Tell me, what is your name?")
+
+
+
     while True:
+        name = input("Enter your name: ")
+        time.sleep(1)
+        print("Oh, another " + name + " have already perished upon the sight of me. Will you be the second?")
+        time.sleep(1)
         choice = input("Easy or hard? Enter 'easy' for Easy, and 'hard' for Hard: ").upper()
         #Check if they actually want to play, if so:
         if choice == 'EASY':
-            startGame(wordsL1, HANGMANPICS_EASY)
+            startGame(wordsL1, HANGMANPICS_EASY, name)
         elif choice == 'HARD':
-            startGame(wordsL2, HANGMANPICS_HARD)
+            startGame(wordsL2, HANGMANPICS_HARD, name)
         elif choice == 'EXIT':
             exit(0)
         else:
             print("Please enter (easy/hard) or (exit) to quit")
 
 
-def startGame(listOfWords, lives):
-    game = HangmanGame(listOfWords, lives)
+def startGame(listOfWords, lives, name):
+    game = HangmanGame(listOfWords, lives, name)
     print("----------- THE GAME BEGINS----------")
     print("\n")
     
@@ -55,6 +68,7 @@ def startGame(listOfWords, lives):
             else:
                 game.tries.append(guess)
                 game.lives -= 1
+                print("Hah! " + game.name + " Look at you trying your best!")
                 
             winOrLose(game)
             # print("\n")
@@ -101,7 +115,7 @@ def validateInput(game, guess):
         answer = input("Are you sure you want to guess the whole word? It's gonna cost you lives! (y/n): ")
         return False if answer == "n" else checkMatchWord(game, guess)
     elif guess in game.tries or guess in game.hidden:
-        print("You already tried that letter, silly. ")
+        print("You already tried that letter, " + game.name)
         return False
     else:
         return True
