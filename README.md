@@ -24,8 +24,8 @@ Live link:
 
 ### Organisation Goals
 
--   
--   
+-   As a creator I want to portray a game that flows smoothly
+-   As a creator I want to let the player choose between difficulties
 -   
 -   
 
