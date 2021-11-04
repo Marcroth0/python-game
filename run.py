@@ -2,7 +2,8 @@ import random
 import time
 
 
-wordsL1 = ["DRAGON", "ENGULFED", "DIAMONDS", "JEWELS", "TREASURE", "DESTRUCTION"]
+wordsL1 = ["DRAGON", "ENGULFED", "DIAMONDS",
+           "JEWELS", "TREASURE", "DESTRUCTION"]
 wordsL2 = ["PHENOMENON", "ONOMATOPOEIA", "DISINTERESTED", "IRREGARDLESS"]
 
 
@@ -17,7 +18,8 @@ class HangmanGame:
         self.name = name
 
     def updateHidden(self, index):
-        self.hidden = self.hidden[:index] + self.plain_text[index] + self.hidden[index+1:]
+        self.hidden = self.hidden[:index] + \
+            self.plain_text[index] + self.hidden[index+1:]
 
 
 def main():
@@ -35,9 +37,11 @@ def main():
     print("At last! At last a challenger appears...")
     time.sleep(1)
     print("Many have come, none have left.")
-    print("What makes you think you will be the first to \ndefeat the Skull of Kol'dan?")
+    print("What makes you think you will be [%s]"
+          "the first to \ndefeat the Skull of Kol'dan?")
     time.sleep(1)
-    print("Centuries upon centuries I've feasted on the souls of these trials.")
+    print("Centuries upon centuries I've [%s]"
+          "feasted on the souls of these trials.")
     print("Tell me, what is your name?")
     print("\n")
     name = input("Enter your name: ")
@@ -46,7 +50,8 @@ def main():
     print("Will you be the second?")
     time.sleep(1)
     print("\n")
-    print("If you should ever fear, typing 'exit' will always let you out...Somewhat \nunscaved.")
+    print("If you should ever fear, typing 'exit' [%s]"
+          "will always let you out...Somewhat unscaved.")
     time.sleep(1.5)
     print("\n")
     print("The rules are simple, even for a simpleton:")
@@ -59,14 +64,16 @@ def main():
 
     while True:
 
-        choice = input("Easy or hard? Enter 'easy' for Easy, and 'hard' for Hard: ").upper()
+        choice = input("Easy or hard? Enter 'easy' [%s]"
+                       "for Easy, and 'hard' for Hard: ").upper()
         # Check if they actually want to play, if so:
         if choice == 'EASY':
             startGame(wordsL1, HANGMANPICS_EASY, name)
         elif choice == 'HARD':
             startGame(wordsL2, HANGMANPICS_HARD, name)
         elif choice == 'EXIT':
-            print("Sad to see you go, " + name + ". All things must come to an end.")
+            print("Sad to see you go, " + name + ".[%s]"
+                  ". All things must come to an end.")
             exit(0)
         else:
             print("Please enter (easy/hard) or (exit) to quit")
@@ -78,7 +85,8 @@ def startGame(listOfWords, lives, name):
     displayInfo(game)
 
     while(game.lives > 0 and game.hidden != game.plain_text):
-        guess = input("Please enter a guess, it must be a letter/word: ").upper()
+        guess = input("Please enter a guess, [%s]"
+                      "it must be a letter/word: ").upper()
         if validateInput(game, guess):
             matchedIndexes = (checkMatch(game, guess))
             if len(matchedIndexes):
@@ -104,7 +112,8 @@ def playAgain(game):
     if playAgain_question == "Y":
         return
     elif playAgain_question == "N":
-        print(f"Sad to see you go, {game.name}. All things must come to an end.")
+        print(f"Sad to see you go, {game.name}. [%s]"
+               "All things must come to an end.")
         exit(0)
 
 
@@ -125,10 +134,12 @@ def validateInput(game, guess):
         print("Please enter a letter [a, b, c ..]: ")
         return False
     elif guess == "EXIT":
-        print(f"Sad to see you go, {game.name}. All things must come to an end.")
+        print(f"Sad to see you go, {game.name}. [%s]"
+               "All things must come to an end.")
         exit(0)
     elif len(guess) > 1:
-        answer = input(f"Are you sure you want to guess the whole word, {game.name}?\nIt's gonna cost you lives! (y/n): ")
+        print(f"Are you sure you want to guess the whole word, {game.name}?")
+        answer = input("It's gonna cost you lives! (y/n): ")
         return False if answer == "n" else checkMatchWord(game, guess)
     elif guess in game.tries or guess in game.hidden:
         print(f"You already tried that letter, {game.name}")
