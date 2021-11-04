@@ -25,54 +25,50 @@ class HangmanGame:
 def main():
     print("""
                     #########################################
-                    _   _______ _     _______  ___  _   _
-                    | | / |  _  | |   ( |  _  \/ _ \| \ | |
-                    | |/ /| | | | |   |/| | | / /_\ |  \| |
-                    |    \| | | | |     | | | |  _  | . ` |
-                    | |\  \ \_/ | |____ | |/ /| | | | |\  |
-                    \_| \_/\___/\_____/ |___/ \_| |_\_| \_/
+                     _   _______ _     _______  ___  _   _
+                     | | / |  _  | |   ( |  _  \/ _ \| \ | |
+                     | |/ /| | | | |   |/| | | / /_\ |  \| |
+                     |    \| | | | |     | | | |  _  | . ` |
+                     | |\  \ \_/ | |____ | |/ /| | | | |\  |
+                     \_| \_/\___/\_____/ |___/ \_| |_\_| \_/
 
                     #########################################
                                        """)
     print("At last! At last a challenger appears...")
     time.sleep(1)
-    print("Many have come, none have left.")
-    print("What makes you think you will be [%s]"
-          "the first to \ndefeat the Skull of Kol'dan?")
+    print("Many have come, none have left.",
+          "\nWhat makes you think you will be",
+          "the first to defeat the Skull of Kol'dan?")
     time.sleep(1)
-    print("Centuries upon centuries I've [%s]"
-          "feasted on the souls of these trials.")
-    print("Tell me, what is your name?")
-    print("\n")
+    print("Centuries upon centuries I've",
+          "feasted on the souls of these trials.",
+          "\nTell me, what is your name?\n")
     name = input("Enter your name: ")
     time.sleep(1)
-    print("Oh, another "+name+" have already perished upon the sight of me.")
-    print("Will you be the second?")
+    print("Oh, another "+name+" have already perished upon the sight of me.",
+          "\nWill you be the second?")
     time.sleep(1)
-    print("\n")
-    print("If you should ever fear, typing 'exit' [%s]"
+    print("\nIf you should ever fear, typing 'exit'",
           "will always let you out...Somewhat unscaved.")
     time.sleep(1.5)
-    print("\n")
-    print("The rules are simple, even for a simpleton:")
-    print("- A word is to be found.")
-    print("- A simple letter per proposal.")
-    print("- Perhaps in the end you will be crowned.")
-    print("- A set of lives at your disposal. ")
+    print("\nThe rules are simple, even for a simpleton:\n",
+          "- A word is to be found.\n",
+          "- A simple letter per proposal.",
+          "- Perhaps in the end you will be crowned.\n",
+          "- A set of lives at your disposal.\n ")
     time.sleep(1)
-    print("\n")
 
     while True:
 
-        choice = input("Easy or hard? Enter 'easy' [%s]"
-                       "for Easy, and 'hard' for Hard: ").upper()
+        choice = input(
+            "Easy or hard? Enter 'easy' for Easy, 'hard' for Hard: ").upper()
         # Check if they actually want to play, if so:
         if choice == 'EASY':
             startGame(wordsL1, HANGMANPICS_EASY, name)
         elif choice == 'HARD':
             startGame(wordsL2, HANGMANPICS_HARD, name)
         elif choice == 'EXIT':
-            print("Sad to see you go, " + name + ".[%s]"
+            print("Sad to see you go, " + name +
                   ". All things must come to an end.")
             exit(0)
         else:
@@ -85,8 +81,8 @@ def startGame(listOfWords, lives, name):
     displayInfo(game)
 
     while(game.lives > 0 and game.hidden != game.plain_text):
-        guess = input("Please enter a guess, [%s]"
-                      "it must be a letter/word: ").upper()
+        guess = input(
+            "Please enter a guess, it must be a letter/word: ").upper()
         if validateInput(game, guess):
             matchedIndexes = (checkMatch(game, guess))
             if len(matchedIndexes):
@@ -112,7 +108,7 @@ def playAgain(game):
     if playAgain_question == "Y":
         return
     elif playAgain_question == "N":
-        print(f"Sad to see you go, {game.name}. [%s]"
+        print(f"Sad to see you go, {game.name}.",
                "All things must come to an end.")
         exit(0)
 
@@ -134,7 +130,7 @@ def validateInput(game, guess):
         print("Please enter a letter [a, b, c ..]: ")
         return False
     elif guess == "EXIT":
-        print(f"Sad to see you go, {game.name}. [%s]"
+        print(f"Sad to see you go, {game.name}.",
                "All things must come to an end.")
         exit(0)
     elif len(guess) > 1:
