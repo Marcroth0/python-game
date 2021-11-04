@@ -146,12 +146,25 @@ In order to let the player know they've guessed the word correctly and won, befo
 
 ![functions-win](assets/images/functions-win-readme.png)
 
-In order to let the player know they've ran out of lives and lost the game. The user is also made aware of the actual word:
+In order to let the player know they've ran out of lives and lost the game. The user is also made aware of the actual word, as well as being able to play again:
 
 ![functions-loss](assets/images/functions-loss-readme.png)
 
 ### Heckling
 
+Or the nicer phrasing "interaction with the player" - which is a key part of playing any game, more so in a python terminal game where the gaming experience is quite linear. So in order to bring the game alive I've added interaction in three steps: 
+
+Three lives remaining: 
+
+![functions-heckle1](assets/images/functions-heckle1-readme.png)
+
+Two lives remaining:
+
+![functions-heckle2](assets/images/functions-heckle2-readme.png)
+
+One life remaining: 
+
+![functions-heckle3](assets/images/functions-heckle3-readme.png)
 
 
 ## Testing
