@@ -66,11 +66,11 @@ def main():
 
 def startGame(listOfWords, lives, name):
     game = HangmanGame(listOfWords, lives, name)
-    print("----------- THE GAME BEGINS----------")
+    print("----------- THE GAME BEGINS -----------")
     displayInfo(game)
     
     while(game.lives > 0 and game.hidden != game.plain_text):
-        guess = input("Please enter a guess, it must be a letter!, go ahead: ").upper()
+        guess = input("Please enter a guess, it must be a letter/word: ").upper()
         if validateInput(game, guess):
             matchedIndexes = (checkMatch(game, guess))
             if len(matchedIndexes):
