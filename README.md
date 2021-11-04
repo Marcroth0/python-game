@@ -9,16 +9,20 @@ Live link: https://thawing-hamlet-48348.herokuapp.com/
 1. [Goals](#goals)
     1. [Organisational Goals](#organisation-goals)
     2. [User Stories](#user-stories)
-2. [Whatever](#)
-    1. [Whatever](#)
-    2. [Whatever](#)
-    3. [Whatever](#)
-3. [Planning](#planning)
-    1. [Whatever](#)
-4. [Testing](#testing)
-    1. [Lighthouse](#lighthouse)
-    2. [Validator](#validator-testing)
-5. [Credits](#credits)
+2. [Development](#development-plane)
+    1. [Strategy](#strategy)
+    2. [Planning](#planning)
+    3. [Flowcharts](#flowcharts)
+3. [Upgradability](#upgradability)
+4. [Functions](#functions)
+5. [Heckling](#heckling)
+6. [Testing](#testing)
+    1. [Functional Testing](#functional-testing)
+    2. [Validator Testing](#validator-testing)
+7. [Issues](#issues)
+    1. [Unfixed Bugs](#unfixed-bugs)
+    2. [Improvements](#improvements)
+7. [Credits](#credits)
 
 ## Goals
 
@@ -37,20 +41,17 @@ Live link: https://thawing-hamlet-48348.herokuapp.com/
 4. As a user I need to know when the game has been won
 
 
-### Development Plane
+## Development Plane
 
 The end goal is to create a smooth-running game that lets the player with ease dive into the world of word-guessing. 
 
-## Strategy
+### Strategy
 
 The strategy is to create a clear and funny game based on the classic Hangman with a few twists. The twists being a scary/vindictive/halloween-ey theme. In order to complete the game the user stories had to be answered. 
 
+### Planning
 
-
-
-## Planning
-
-The planning phase was made in stages, starting off with a generalised overview and then advancing into specifics. 
+The planning phase was made in stages, starting off with a generalised overview and then advancing into specifics. Considering it's a terminal game no wireframes were needed and used mainly flowcharts to plan.
 
 ### Flowcharts
 
@@ -177,13 +178,6 @@ https://user-images.githubusercontent.com/86383017/140244395-2610532f-4ae3-4d97-
 
 
 ## Testing
-
-**Browsers:**
-
--   Chrome
--   Mozilla Firefox
--   Safari
--   Edge
 
 ### Functional testing
 
