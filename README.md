@@ -66,7 +66,7 @@ The over-all birds-eye view of the game is as below, in which you'll find the ge
 
 ## Upgradability
 
-- The puppetmaster behind the game - in order to make the game easily upgradable with difficulties i added a hangman class which controls it:
+ The puppetmaster behind the game - in order to make the game easily upgradable with difficulties i added a hangman class which controls it:
 <details close>
 <summary>Class Flowchart</summary>
 
@@ -140,6 +140,10 @@ if choice == 'EASY':
  In order to let the player know they've guessed the word incorrectly, the lives will go down as well as print the wrongly put letter in "Tried letters/words":
 
 ![functions-incorrect](assets/images/functions-incorrect-readme.png)
+
+While the player tries to guess an entire word a warning pops up letting the user know that if they decide to be brave, they might lose a life: 
+
+![functions-word](assets/images/functions-word-readme.png)
 
 In order to let the player know they've guessed the word correctly and won, before running out of lives, the below function will display:
 (User stories: 4. As a user I need to know when the game has been won)
