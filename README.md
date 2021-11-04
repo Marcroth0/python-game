@@ -171,6 +171,11 @@ One life remaining:
 ![functions-heckle3](assets/images/functions-heckle3-readme.png)
 
 
+Lastly, a complete run-through of the game: 
+
+https://user-images.githubusercontent.com/86383017/140244395-2610532f-4ae3-4d97-87a9-42801440fa90.mov
+
+
 ## Testing
 
 **Browsers:**
