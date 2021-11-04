@@ -204,16 +204,31 @@ Pep8 validator testing:
 
 ## Issues
 
-So many. 
+- Firstly I started writing the code for the game but realised quickly I wouldn't be able to make it upgradable, thus choosing to rethink the project and came up with classes. 
+
+- Too many print statements in order to stay within the lines. Solution was the below code, to allow new lines in one statement: 
+
+```
+print("Many have come, none have left.",
+          "\nWhat makes you think you will be",
+          "the first to defeat the Skull of Kol'dan?")
+```
+
+- Finding a way to match the guessed letter with the actual word in a simple way, which introduced the hidden word compared to plain text - being able to compare with plain text while keeping the hidden word hidden:
+
+```
+    return [i for i, ltr in enumerate(game.plain_text) if ltr == guess]
+```
 
 ## Unfixed Bugs
 
+None to my recollection.
 
 ## Improvements
 
-
-## Features Left to Implement
-
+- Be able to keep highscores
+- Allow people to save previous scores
+- Add a "hint" function at the last life.
 
 ## Deployment
 
