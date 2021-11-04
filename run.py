@@ -1,6 +1,7 @@
 import random
 import time
 
+
 wordsL1 = ["DRAGON", "ENGULFED", "DIAMONDS", "JEWELS", "TREASURE", "DESTRUCTION"]
 wordsL2 = ["PHENOMENON", "ONOMATOPOEIA", "DISINTERESTED", "IRREGARDLESS"]
 
@@ -33,19 +34,26 @@ def main():
                                        """)
     print("At last! At last a challenger appears...")
     time.sleep(1)
-    print("Many have come, none have left. What makes you think you will be the first to \ndefeat the Skull of Kol'dan?")
+    print("Many have come, none have left.") 
+    print("What makes you think you will be the first to \ndefeat the Skull of Kol'dan?")
     time.sleep(1)
-    print("Centuries upon centuries I've feasted on the souls of these trials. \nTell me, what is your name?")
+    print("Centuries upon centuries I've feasted on the souls of these trials.")
+    print("Tell me, what is your name?")
     print("\n")
     name = input("Enter your name: ")
     time.sleep(1)
-    print("Oh, another " + name +  " have already perished upon the sight of me. Will you be the \nsecond?")
+    print("Oh, another " + name +  " have already perished upon the sight of me.")
+    print("Will you be the second?")
     time.sleep(1)
     print("\n")
     print("If you should ever fear, typing 'exit' will always let you out...Somewhat \nunscaved.")
     time.sleep(1.5)
     print("\n")
-    print("The rules are simple, even for a simpleton:\n- A word is to be found.\n- A simple letter per proposal.\n- Perhaps in the end you will be crowned.\n- A set of lives at your disposal. ")
+    print("The rules are simple, even for a simpleton:")
+    print("- A word is to be found.")
+    print("- A simple letter per proposal.")
+    print("- Perhaps in the end you will be crowned.")
+    print("- A set of lives at your disposal. ")
     time.sleep(1)
     print("\n")
 
@@ -85,9 +93,11 @@ def startGame(listOfWords, lives, name):
 def checkMatch(game, guess):
     return [i for i, ltr in enumerate(game.plain_text) if ltr == guess]
 
+
 def updateDisplayedWord(game, list):
     for idx in list:
         game.updateHidden(idx)
+
 
 def playAgain(game):
     playAgain_question = input("Wanna play again? (y/n): ").upper()
@@ -96,6 +106,7 @@ def playAgain(game):
     elif playAgain_question == "N":
         print(f"Sad to see you go, {game.name}. All things must come to an end.")
         exit(0)
+
 
 def winOrLose(game):
     if (game.hidden == game.plain_text):
@@ -107,6 +118,7 @@ def winOrLose(game):
         print(f"You lost, {game.name}! The word was {game.plain_text}")
         print(f"Another one to add to my collection!")
         playAgain(game)
+
 
 def validateInput(game, guess):
     if not guess.isalpha():
@@ -152,7 +164,6 @@ def displayInfo(game):
         print("Is this the last breath before the neverending plunge?")
     elif game.lives == 1: 
         print("*Gulp*")
-
 
 
 HANGMANPICS_EASY = ['''
