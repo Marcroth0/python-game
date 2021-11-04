@@ -136,15 +136,21 @@ if choice == 'EASY':
  (User stories 1/3: As a user I want to easily know the rules of the game/As a user I need to know what my score is)
 
 ![functions-start](assets/images/functions-start-readme.png)
-
-In order to let the player know they've guessed the word correctly, before running out of lives, the below function will display:
-(User stories: 4. As a user I need to know when the game has been won)
-
-![functions-win](assets/images/functions-win-readme.png)
  
  In order to let the player know they've guessed the word incorrectly, the lives will go down as well as print the wrongly put letter in "Tried letters/words":
 
 ![functions-incorrect](assets/images/functions-incorrect-readme.png)
+
+In order to let the player know they've guessed the word correctly and won, before running out of lives, the below function will display:
+(User stories: 4. As a user I need to know when the game has been won)
+
+![functions-win](assets/images/functions-win-readme.png)
+
+In order to let the player know they've ran out of lives and lost the game. The user is also made aware of the actual word:
+
+![functions-loss](assets/images/functions-loss-readme.png)
+
+### Heckling
 
 
 
