@@ -6,18 +6,18 @@ wordsL1 = ["DRAGON", "ENGULFED", "DIAMONDS",
            "JEWELS", "TREASURE", "DESTRUCTION"]
 wordsL2 = ["PHENOMENON", "ONOMATOPOEIA", "DISINTERESTED", "IRREGARDLESS"]
 
-
-class HangmanGame:
+#
+class hangman_game:
     def __init__(self, wordsList, imageArray, name):
-        self.wordsToPlay = wordsList
+        self.word_to_play = wordsList
         self.plain_text = random.choice(wordsList)
         self.hidden = ("_" * len(self.plain_text))
         self.tries = []
-        self.displayedImage = imageArray
-        self.lives = len(self.displayedImage)-1
+        self.displayed_image = imageArray
+        self.lives = len(self.displayed_image)-1
         self.name = name
 
-    def updateHidden(self, index):
+    def update_hidden(self, index):
         self.hidden = self.hidden[:index] + \
             self.plain_text[index] + self.hidden[index+1:]
 
@@ -64,9 +64,9 @@ def main():
             "Easy or hard? Enter 'easy' for Easy, 'hard' for Hard: ").upper()
         # Check if they actually want to play, if so:
         if choice == 'EASY':
-            startGame(wordsL1, HANGMANPICS_EASY, name)
+            start_game(wordsL1, HANGMANPICS_EASY, name)
         elif choice == 'HARD':
-            startGame(wordsL2, HANGMANPICS_HARD, name)
+            start_game(wordsL2, HANGMANPICS_HARD, name)
         elif choice == 'EXIT':
             print("Sad to see you go, " + name +
                   ". All things must come to an end.")
@@ -75,57 +75,57 @@ def main():
             print("Please enter (easy/hard) or (exit) to quit")
 
 
-def startGame(listOfWords, lives, name):
-    game = HangmanGame(listOfWords, lives, name)
+def start_game(list_of_words, lives, name):
+    game = hangman_game(list_of_words, lives, name)
     print("----------- THE GAME BEGINS -----------")
-    displayInfo(game)
+    display_info(game)
 
     while(game.lives > 0 and game.hidden != game.plain_text):
         guess = input(
             "Please enter a guess, it must be a letter/word: ").upper()
-        if validateInput(game, guess):
-            matchedIndexes = (checkMatch(game, guess))
-            if len(matchedIndexes):
-                updateDisplayedWord(game, matchedIndexes)
+        if validate_input(game, guess):
+            matched_indexes = (check_match(game, guess))
+            if len(matched_indexes):
+                update_displayed_word(game, matched_indexes)
             else:
                 game.tries.append(guess)
                 game.lives -= 1
-            displayInfo(game)
-            winOrLose(game)
+            display_info(game)
+            win_or_lose(game)
 
 
-def checkMatch(game, guess):
+def check_match(game, guess):
     return [i for i, ltr in enumerate(game.plain_text) if ltr == guess]
 
 
-def updateDisplayedWord(game, list):
+def update_displayed_word(game, list):
     for idx in list:
-        game.updateHidden(idx)
+        game.update_hidden(idx)
 
 
-def playAgain(game):
-    playAgain_question = input("Wanna play again? (y/n): ").upper()
-    if playAgain_question == "Y":
+def play_again(game):
+    play_again_question = input("Wanna play again? (y/n): ").upper()
+    if play_again_question == "Y":
         return
-    elif playAgain_question == "N":
+    elif play_again_question == "N":
         print(f"Sad to see you go, {game.name}.",
                "All things must come to an end.")
         exit(0)
 
 
-def winOrLose(game):
+def win_or_lose(game):
     if (game.hidden == game.plain_text):
         print(f"Congrats, you won! The word was {game.plain_text}")
         print("I guess there had to be a first...")
-        playAgain(game)
+        play_again(game)
     elif(game.lives == 0):
-        print(game.displayedImage[-1])
+        print(game.displayed_image[-1])
         print(f"You lost, {game.name}! The word was {game.plain_text}")
         print(f"Another one to add to my collection!")
-        playAgain(game)
+        play_again(game)
 
 
-def validateInput(game, guess):
+def validate_input(game, guess):
     if not guess.isalpha():
         print("Please enter a letter [a, b, c ..]: ")
         return False
@@ -136,7 +136,7 @@ def validateInput(game, guess):
     elif len(guess) > 1:
         print(f"Are you sure you want to guess the whole word, {game.name}?")
         answer = input("It's gonna cost you lives! (y/n): ")
-        return False if answer == "n" else checkMatchWord(game, guess)
+        return False if answer == "n" else check_matchWord(game, guess)
     elif guess in game.tries or guess in game.hidden:
         print(f"You already tried that letter, {game.name}")
         return False
@@ -144,11 +144,11 @@ def validateInput(game, guess):
         return True
 
 
-def checkMatchWord(game, guess):
+def check_matchWord(game, guess):
     if (guess == game.plain_text):
         game.hidden = game.plain_text
         print(f"Congrats, you won! The word was {game.plain_text}")
-        playAgain(game)
+        play_again(game)
     else:
         print("You guessed the wrong word! Try again")
         game.lives -= 1
@@ -156,9 +156,9 @@ def checkMatchWord(game, guess):
         print(game.lives)
 
 
-def displayInfo(game):
+def display_info(game):
     print("\n")
-    print(game.displayedImage[-game.lives-1])
+    print(game.displayed_image[-game.lives-1])
     print("\n")
     print(game.hidden)
     print("\n")
