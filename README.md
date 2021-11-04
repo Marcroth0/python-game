@@ -187,7 +187,7 @@ https://user-images.githubusercontent.com/86383017/140244395-2610532f-4ae3-4d97-
 
 ### Functional testing
 
-A buncha gifs in separate file or drop-down.
+See details [here](assets/testing.md)
 
 
 ### Validator Testing
@@ -235,7 +235,6 @@ None to my recollection.
 
 ## Credits
 
--   
 -   A general shout-out to [StackOverflow](https://stackoverflow.com/)
 
 ## Media
