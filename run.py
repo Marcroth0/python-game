@@ -116,7 +116,7 @@ def validateInput(game, guess):
         print(f"Sad to see you go, {game.name}. All things must come to an end.")
         exit(0)
     elif len(guess) > 1:
-        answer = input(f"Are you sure you want to guess the whole word, {game.name}?\n It's gonna cost you lives! (y/n): ")
+        answer = input(f"Are you sure you want to guess the whole word, {game.name}?\nIt's gonna cost you lives! (y/n): ")
         return False if answer == "n" else checkMatchWord(game, guess)
     elif guess in game.tries or guess in game.hidden:
         print(f"You already tried that letter, {game.name}")
