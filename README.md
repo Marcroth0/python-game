@@ -1,8 +1,8 @@
 # Python Hangman Game
 
-![amiresponsive]()
+![headshot](assets/images/headshot-readme.png)
 
-Live link: 
+Live link: https://thawing-hamlet-48348.herokuapp.com/
 
 ### Table of Contents
 
@@ -187,16 +187,20 @@ https://user-images.githubusercontent.com/86383017/140244395-2610532f-4ae3-4d97-
 
 ### Functional testing
 
-### Lighthouse
+A buncha gifs in separate file or drop-down.
 
-![lighthouse](assets/images/lighthouse-memory-readme.png)
 
 ### Validator Testing
+
+## Issues
+
+So many. 
 
 ## Unfixed Bugs
 
 
 ## Improvements
+
 
 ## Features Left to Implement
 
