@@ -192,6 +192,16 @@ A buncha gifs in separate file or drop-down.
 
 ### Validator Testing
 
+Pep8 validator testing: 
+
+<details close>
+<summary>Validator Python</summary>
+
+![validator-python](assets/images/pep8-validator-readme.png)
+
+</details>
+
+
 ## Issues
 
 So many. 
@@ -215,4 +225,5 @@ So many.
 
 ## Media
 
--   
+-  ASCII ART by: [ASCII.co.uk](https://ascii.co.uk/art/skulls)
+-  ASCII text art by: [PATORJK](https://patorjk.com)
