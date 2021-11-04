@@ -1,12 +1,14 @@
 import random
 import time
 
-
+# Word lists for Easy and hard
 wordsL1 = ["DRAGON", "ENGULFED", "DIAMONDS",
            "JEWELS", "TREASURE", "DESTRUCTION"]
 wordsL2 = ["PHENOMENON", "ONOMATOPOEIA", "DISINTERESTED", "IRREGARDLESS"]
 
-#
+# Hangman class containing all information needed to run the game
+# Allows the same functions to be used no matter the existing 
+# difficulties or added ones, as well as further improvement. 
 class hangman_game:
     def __init__(self, wordsList, imageArray, name):
         self.word_to_play = wordsList
@@ -21,7 +23,7 @@ class hangman_game:
         self.hidden = self.hidden[:index] + \
             self.plain_text[index] + self.hidden[index+1:]
 
-
+# Holds the welcoming message and choice of difficulty
 def main():
     print("""
                     #########################################
@@ -74,7 +76,8 @@ def main():
         else:
             print("Please enter (easy/hard) or (exit) to quit")
 
-
+# Starts the game, with chosen difficulty, as well
+# as the while loop containing the games functions
 def start_game(list_of_words, lives, name):
     game = hangman_game(list_of_words, lives, name)
     print("----------- THE GAME BEGINS -----------")
@@ -93,16 +96,17 @@ def start_game(list_of_words, lives, name):
             display_info(game)
             win_or_lose(game)
 
-
+# Checks whether a guess is equal to the word to be guessed
 def check_match(game, guess):
     return [i for i, ltr in enumerate(game.plain_text) if ltr == guess]
 
-
+# Displays a correctly guessed letter at the correct index
 def update_displayed_word(game, list):
     for idx in list:
         game.update_hidden(idx)
 
-
+# Allows the player to play again, letting them again choose the 
+# difficulty, and restart the game
 def play_again(game):
     play_again_question = input("Wanna play again? (y/n): ").upper()
     if play_again_question == "Y":
@@ -112,7 +116,9 @@ def play_again(game):
                "All things must come to an end.")
         exit(0)
 
-
+# Checks whether or not the player has won or lost
+# Prints messages accordingly, as well as offers the player
+# to play again calling correct function
 def win_or_lose(game):
     if (game.hidden == game.plain_text):
         print(f"Congrats, you won! The word was {game.plain_text}")
@@ -124,7 +130,9 @@ def win_or_lose(game):
         print(f"Another one to add to my collection!")
         play_again(game)
 
-
+# Validates the players input - makes sure it's alphabetical
+# Controls if the player wants to guess an entire word
+# Controls if the player guesses an already guessed letter/word
 def validate_input(game, guess):
     if not guess.isalpha():
         print("Please enter a letter [a, b, c ..]: ")
@@ -143,7 +151,7 @@ def validate_input(game, guess):
     else:
         return True
 
-
+# Controls whether or not a guessed word matches
 def check_matchWord(game, guess):
     if (guess == game.plain_text):
         game.hidden = game.plain_text
@@ -155,7 +163,8 @@ def check_matchWord(game, guess):
         game.tries.append(guess)
         print(game.lives)
 
-
+# Displays the information needed for the flow of the game, such
+# as lives, the skull, heckles, and attempted incorrect words
 def display_info(game):
     print("\n")
     print(game.displayed_image[-game.lives-1])
@@ -174,7 +183,7 @@ def display_info(game):
     elif game.lives == 1:
         print("*Gulp*")
 
-
+# Pictures used for difficulty: Easy
 HANGMANPICS_EASY = ['''
                                      ______
                                   .-"      "-.
@@ -255,7 +264,7 @@ HANGMANPICS_EASY = ['''
                                    `--------`
 ''']
 
-
+# Pictures used for difficulty: Hard
 HANGMANPICS_HARD = ['''
            ______
         .-"      "-.
