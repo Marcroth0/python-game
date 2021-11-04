@@ -6,14 +6,14 @@ wordsL1 = ["DRAGON", "ENGULFED", "DIAMONDS", "JEWELS", "TREASURE", "DESTRUCTION"
 wordsL2 = ["PHENOMENON", "ONOMATOPOEIA", "DISINTERESTED", "IRREGARDLESS"]
 
 
-class HangmanGame: 
+class HangmanGame:
     def __init__(self, wordsList, imageArray, name):
         self.wordsToPlay = wordsList
         self.plain_text = random.choice(wordsList)
         self.hidden = ("_" * len(self.plain_text))
         self.tries = []
         self.displayedImage = imageArray
-        self.lives = len(self.displayedImage) -1
+        self.lives = len(self.displayedImage)-1
         self.name = name
 
     def updateHidden(self, index):
@@ -21,20 +21,20 @@ class HangmanGame:
 
 
 def main():
-    print( """
+    print("""
                     #########################################
-                    _   _______ _     _______  ___  _   _ 
+                    _   _______ _     _______  ___  _   _
                     | | / |  _  | |   ( |  _  \/ _ \| \ | |
                     | |/ /| | | | |   |/| | | / /_\ |  \| |
                     |    \| | | | |     | | | |  _  | . ` |
                     | |\  \ \_/ | |____ | |/ /| | | | |\  |
                     \_| \_/\___/\_____/ |___/ \_| |_\_| \_/
-                    
-                    #########################################                        
+
+                    #########################################
                                        """)
     print("At last! At last a challenger appears...")
     time.sleep(1)
-    print("Many have come, none have left.") 
+    print("Many have come, none have left.")
     print("What makes you think you will be the first to \ndefeat the Skull of Kol'dan?")
     time.sleep(1)
     print("Centuries upon centuries I've feasted on the souls of these trials.")
@@ -42,7 +42,7 @@ def main():
     print("\n")
     name = input("Enter your name: ")
     time.sleep(1)
-    print("Oh, another " + name +  " have already perished upon the sight of me.")
+    print("Oh, another "+name+" have already perished upon the sight of me.")
     print("Will you be the second?")
     time.sleep(1)
     print("\n")
@@ -58,15 +58,15 @@ def main():
     print("\n")
 
     while True:
-        
+
         choice = input("Easy or hard? Enter 'easy' for Easy, and 'hard' for Hard: ").upper()
-        #Check if they actually want to play, if so:
+        # Check if they actually want to play, if so:
         if choice == 'EASY':
             startGame(wordsL1, HANGMANPICS_EASY, name)
         elif choice == 'HARD':
             startGame(wordsL2, HANGMANPICS_HARD, name)
         elif choice == 'EXIT':
-            print(f"Sad to see you go, " + name + ". All things must come to an end.")
+            print("Sad to see you go, " + name + ". All things must come to an end.")
             exit(0)
         else:
             print("Please enter (easy/hard) or (exit) to quit")
@@ -76,7 +76,7 @@ def startGame(listOfWords, lives, name):
     game = HangmanGame(listOfWords, lives, name)
     print("----------- THE GAME BEGINS -----------")
     displayInfo(game)
-    
+
     while(game.lives > 0 and game.hidden != game.plain_text):
         guess = input("Please enter a guess, it must be a letter/word: ").upper()
         if validateInput(game, guess):
@@ -85,10 +85,10 @@ def startGame(listOfWords, lives, name):
                 updateDisplayedWord(game, matchedIndexes)
             else:
                 game.tries.append(guess)
-                game.lives -= 1    
+                game.lives -= 1
             displayInfo(game)
             winOrLose(game)
-            
+
 
 def checkMatch(game, guess):
     return [i for i, ltr in enumerate(game.plain_text) if ltr == guess]
@@ -136,6 +136,7 @@ def validateInput(game, guess):
     else:
         return True
 
+
 def checkMatchWord(game, guess):
     if (guess == game.plain_text):
         game.hidden = game.plain_text
@@ -147,6 +148,7 @@ def checkMatchWord(game, guess):
         game.tries.append(guess)
         print(game.lives)
 
+
 def displayInfo(game):
     print("\n")
     print(game.displayedImage[-game.lives-1])
@@ -154,7 +156,7 @@ def displayInfo(game):
     print(game.hidden)
     print("\n")
     print("Tried letters/words: ")
-    print(*game.tries, sep = ", ")
+    print(*game.tries, sep=", ")
     print(f"Lives: {game.lives}")
     print("\n")
     if game.lives == 3:
@@ -162,7 +164,7 @@ def displayInfo(game):
     elif game.lives == 2:
         print(f"THIS IS THE TIME FOR PANIC, {game.name}!")
         print("Is this the last breath before the neverending plunge?")
-    elif game.lives == 1: 
+    elif game.lives == 1:
         print("*Gulp*")
 
 
@@ -273,7 +275,7 @@ HANGMANPICS_HARD = ['''
                                   |          |
                                   \          /
                                    `--------`
-''','''
+''', '''
                                      ______
                                   .-"      "-.
                                 //            \\
