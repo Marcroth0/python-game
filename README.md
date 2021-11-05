@@ -45,6 +45,8 @@ Live link: https://thawing-hamlet-48348.herokuapp.com/
 
 The end goal is to create a smooth-running game that lets the player with ease dive into the world of word-guessing. 
 
+The key is to well prepared follow the flowchart in order to answer one function at a time. 
+
 ### Strategy
 
 The strategy is to create a clear and funny game based on the classic Hangman with a few twists. The twists being a scary/vindictive/halloween-ey theme. In order to complete the game the user stories had to be answered. 
