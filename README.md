@@ -226,10 +226,25 @@ None to my recollection.
 
 ## Deployment
 
+GitHub:
+
+-   The site was deployed to GitHub pages. The steps to deploy are as follows:
+    -   In the GitHub repository, navigate to the Settings tab
+    -   From the source section drop-down menu, select the Master Branch
+    -   Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+
+Heroku:
+
+1. Create an account with Heroku
+2. Create a new app whilst logged in
+3. Add Buildpacks 'Python' and 'NodeJS'
+4. Connect your GitHub repository via "Connect to GitHub"
+5. Enable either "Automatic Deploys" or do it manually. 
 
 ## Credits
 
 -   A general shout-out to [StackOverflow](https://stackoverflow.com/)
+-   I owe all my image-compression to [ImgBot](https://imgbot.net/)
 
 ## Media
 
