@@ -139,7 +139,7 @@ def play_again(game):
               "All things must come to an end.")
         exit(0)
     else:
-        print("Incorrect value provided, please enter your reposnse again.\n")
+        print("Incorrect value provided, please enter your response again.\n")
         play_again(game)
 
 
@@ -176,6 +176,9 @@ def validate_input(game, guess):
     elif len(guess) > 1:
         print(f"Are you sure you want to guess the whole word, {game.name}?")
         answer = input("It's gonna cost you lives! (y/n): ")
+        while (answer != "y" and answer != "n"):
+            print("Please provide a valid answer")
+            answer = input("(y/n): ")
         return False if answer == "n" else check_matchWord(game, guess)
     elif guess in game.tries or guess in game.hidden:
         print(f"You already tried that letter, {game.name}")
