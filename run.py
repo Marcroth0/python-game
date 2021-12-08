@@ -371,4 +371,3 @@ HANGMANPICS_HARD = ['''
 
 
 main()
- 
