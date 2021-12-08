@@ -135,10 +135,13 @@ def check_matchWord(game, guess):
         print(f"Congrats, you won! The word was {game.plain_text}")
         play_again(game)
     else:
-        print("You guessed the wrong word! Try again")
+        print("You guessed the wrong word!")
         game.lives -= 1
-        game.tries.append(guess)
-        print(game.lives)
+        if (game.lives == 0):
+            win_or_lose(game)
+        else:
+            game.tries.append(guess)
+            display_info(game)
 
 
 def display_info(game):
