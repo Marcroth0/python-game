@@ -1,7 +1,6 @@
 import random
 import time
 
-# Word lists for Easy and hard
 wordsL1 = [
     "DRAGON", "ENGULFED", "DIAMONDS", "JEWELS", "TREASURE", "DESTRUCTION"
 ]
@@ -26,66 +25,6 @@ class hangman_game:
     def update_hidden(self, index):
         self.hidden = self.hidden[:index] + \
             self.plain_text[index] + self.hidden[index+1:]
-
-
-def main():
-    """
-    Holds the welcoming message and choice of difficulty
-    """
-    print("""
-                    #########################################
-                     _   _______ _     _______  ___  _   _
-                     | | / |  _  | |   ( |  _  \/ _ \| \ | |
-                     | |/ /| | | | |   |/| | | / /_\ |  \| |
-                     |    \| | | | |     | | | |  _  | . ` |
-                     | |\  \ \_/ | |____ | |/ /| | | | |\  |
-                     \_| \_/\___/\_____/ |___/ \_| |_\_| \_/
-
-                    #########################################
-                                       """)
-    print("At last! At last a challenger appears...")
-    time.sleep(1)
-    print("Many have come, none have left.",
-          "\nWhat makes you think you will be",
-          "the first to defeat the Skull of Kol'dan?")
-    time.sleep(1)
-    print("Centuries upon centuries I've",
-          "feasted on the souls of these trials.",
-          "\nTell me, what is your name?\n")
-    name = input("Enter your name: ")
-
-    while (not name.isalnum()):
-        print("Please provide an alphanumeric value")
-        name = input("Enter your name: ")
-
-    time.sleep(1)
-    print(
-        "Oh, another " + name + " have already perished upon the sight of me.",
-        "\nWill you be the second?")
-    time.sleep(1)
-    print("\nIf you should ever fear, typing 'exit'",
-          "will always let you out...Somewhat unscaved.")
-    time.sleep(1.5)
-    print("\nThe rules are simple, even for a simpleton:\n",
-          "- A word is to be found.\n", "- A simple letter per proposal.",
-          "- Perhaps in the end you will be crowned.\n",
-          "- A set of lives at your disposal.\n ")
-    time.sleep(1)
-
-    while True:
-
-        choice = input(
-            "Easy or hard? Enter 'easy' for Easy, 'hard' for Hard: ").upper()
-        if choice == 'EASY':
-            start_game(wordsL1, HANGMANPICS_EASY, name)
-        elif choice == 'HARD':
-            start_game(wordsL2, HANGMANPICS_HARD, name)
-        elif choice == 'EXIT':
-            print("Sad to see you go, " + name +
-                  ". All things must come to an end.")
-            exit(0)
-        else:
-            print("Please enter (easy/hard) or (exit) to quit")
 
 
 def start_game(list_of_words, lives, name):
@@ -377,5 +316,66 @@ HANGMANPICS_HARD = [
                                    `--------`
 '''
 ]
+
+
+def main():
+    """
+    Holds the welcoming message and choice of difficulty
+    """
+    print("""
+                    #########################################
+                     _   _______ _     _______  ___  _   _
+                     | | / |  _  | |   ( |  _  \/ _ \| \ | |
+                     | |/ /| | | | |   |/| | | / /_\ |  \| |
+                     |    \| | | | |     | | | |  _  | . ` |
+                     | |\  \ \_/ | |____ | |/ /| | | | |\  |
+                     \_| \_/\___/\_____/ |___/ \_| |_\_| \_/
+
+                    #########################################
+                                       """)
+    print("At last! At last a challenger appears...")
+    time.sleep(1)
+    print("Many have come, none have left.",
+          "\nWhat makes you think you will be",
+          "the first to defeat the Skull of Kol'dan?")
+    time.sleep(1)
+    print("Centuries upon centuries I've",
+          "feasted on the souls of these trials.",
+          "\nTell me, what is your name?\n")
+    name = input("Enter your name: ")
+
+    while (not name.isalnum()):
+        print("Please provide an alphanumeric value")
+        name = input("Enter your name: ")
+
+    time.sleep(1)
+    print(
+        "Oh, another " + name + " have already perished upon the sight of me.",
+        "\nWill you be the second?")
+    time.sleep(1)
+    print("\nIf you should ever fear, typing 'exit'",
+          "will always let you out...Somewhat unscaved.")
+    time.sleep(1.5)
+    print("\nThe rules are simple, even for a simpleton:\n",
+          "- A word is to be found.\n", "- A simple letter per proposal.",
+          "- Perhaps in the end you will be crowned.\n",
+          "- A set of lives at your disposal.\n ")
+    time.sleep(1)
+
+    while True:
+
+        choice = input(
+            "Easy or hard? Enter 'easy' for Easy, 'hard' for Hard: ").upper()
+        if choice == 'EASY':
+            start_game(wordsL1, HANGMANPICS_EASY, name)
+        elif choice == 'HARD':
+            start_game(wordsL2, HANGMANPICS_HARD, name)
+        elif choice == 'EXIT':
+            print("Sad to see you go, " + name +
+                  ". All things must come to an end.")
+            exit(0)
+        else:
+            print("Please enter (easy/hard) or (exit) to quit")
+
 
 main()
