@@ -2,8 +2,9 @@ import random
 import time
 
 # Word lists for Easy and hard
-wordsL1 = ["DRAGON", "ENGULFED", "DIAMONDS",
-           "JEWELS", "TREASURE", "DESTRUCTION"]
+wordsL1 = [
+    "DRAGON", "ENGULFED", "DIAMONDS", "JEWELS", "TREASURE", "DESTRUCTION"
+]
 wordsL2 = ["PHENOMENON", "ONOMATOPOEIA", "DISINTERESTED", "IRREGARDLESS"]
 
 
@@ -19,7 +20,7 @@ class hangman_game:
         self.hidden = ("_" * len(self.plain_text))
         self.tries = []
         self.displayed_image = imageArray
-        self.lives = len(self.displayed_image)-1
+        self.lives = len(self.displayed_image) - 1
         self.name = name
 
     def update_hidden(self, index):
@@ -58,15 +59,15 @@ def main():
         name = input("Enter your name: ")
 
     time.sleep(1)
-    print("Oh, another "+name+" have already perished upon the sight of me.",
-          "\nWill you be the second?")
+    print(
+        "Oh, another " + name + " have already perished upon the sight of me.",
+        "\nWill you be the second?")
     time.sleep(1)
     print("\nIf you should ever fear, typing 'exit'",
           "will always let you out...Somewhat unscaved.")
     time.sleep(1.5)
     print("\nThe rules are simple, even for a simpleton:\n",
-          "- A word is to be found.\n",
-          "- A simple letter per proposal.",
+          "- A word is to be found.\n", "- A simple letter per proposal.",
           "- Perhaps in the end you will be crowned.\n",
           "- A set of lives at your disposal.\n ")
     time.sleep(1)
@@ -96,7 +97,7 @@ def start_game(list_of_words, lives, name):
     print("----------- THE GAME BEGINS -----------")
     display_info(game)
 
-    while(game.lives > 0 and game.hidden != game.plain_text):
+    while (game.lives > 0 and game.hidden != game.plain_text):
         guess = input(
             "Please enter a guess, it must be a letter/word: ").upper()
         if validate_input(game, guess):
@@ -135,7 +136,7 @@ def play_again(game):
         return
     elif play_again_question == "N":
         print(f"Sad to see you go, {game.name}.",
-               "All things must come to an end.")
+              "All things must come to an end.")
         exit(0)
     else:
         print("Incorrect value provided, please enter your reposnse again.\n")
@@ -152,7 +153,7 @@ def win_or_lose(game):
         print(f"Congrats, you won! The word was {game.plain_text}")
         print("I guess there had to be a first...")
         play_again(game)
-    elif(game.lives == 0):
+    elif (game.lives == 0):
         print(game.displayed_image[-1])
         print(f"You lost, {game.name}! The word was {game.plain_text}")
         print(f"Another one to add to my collection!")
@@ -170,7 +171,7 @@ def validate_input(game, guess):
         return False
     elif guess == "EXIT":
         print(f"Sad to see you go, {game.name}.",
-               "All things must come to an end.")
+              "All things must come to an end.")
         exit(0)
     elif len(guess) > 1:
         print(f"Are you sure you want to guess the whole word, {game.name}?")
@@ -204,7 +205,7 @@ def display_info(game):
     as lives, the skull, heckles, and attempted incorrect words
     """
     print("\n")
-    print(game.displayed_image[-game.lives-1])
+    print(game.displayed_image[-game.lives - 1])
     print("\n")
     print(game.hidden)
     print("\n")
@@ -220,8 +221,10 @@ def display_info(game):
     elif game.lives == 1:
         print("*Gulp*")
 
+
 # Pictures used for difficulty: Easy
-HANGMANPICS_EASY = ['''
+HANGMANPICS_EASY = [
+    '''
                                      ______
                                   .-"      "-.
                                 //            \\
@@ -299,10 +302,12 @@ HANGMANPICS_EASY = ['''
                                   | \IIIIII/ |
                                   \          /
                                    `--------`
-''']
+'''
+]
 
 # Pictures used for difficulty: Hard
-HANGMANPICS_HARD = ['''
+HANGMANPICS_HARD = [
+    '''
            ______
         .-"      "-.
       //            \\
@@ -367,7 +372,7 @@ HANGMANPICS_HARD = ['''
                                   | \IIIIII/ |
                                   \          /
                                    `--------`
-''']
-
+'''
+]
 
 main()
