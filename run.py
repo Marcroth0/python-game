@@ -6,10 +6,13 @@ wordsL1 = ["DRAGON", "ENGULFED", "DIAMONDS",
            "JEWELS", "TREASURE", "DESTRUCTION"]
 wordsL2 = ["PHENOMENON", "ONOMATOPOEIA", "DISINTERESTED", "IRREGARDLESS"]
 
-# Hangman class containing all information needed to run the game
-# Allows the same functions to be used no matter the existing 
-# difficulties or added ones, as well as further improvement. 
+
 class hangman_game:
+    """
+    Hangman class containing all information needed to run the game.
+    Allows the same functions to be used no matter the existing
+    difficulties or added ones, as well as further improvement
+    """
     def __init__(self, wordsList, imageArray, name):
         self.word_to_play = wordsList
         self.plain_text = random.choice(wordsList)
@@ -23,8 +26,11 @@ class hangman_game:
         self.hidden = self.hidden[:index] + \
             self.plain_text[index] + self.hidden[index+1:]
 
-# Holds the welcoming message and choice of difficulty
+
 def main():
+    """
+    Holds the welcoming message and choice of difficulty
+    """
     print("""
                     #########################################
                      _   _______ _     _______  ___  _   _
@@ -46,6 +52,11 @@ def main():
           "feasted on the souls of these trials.",
           "\nTell me, what is your name?\n")
     name = input("Enter your name: ")
+
+    while (not name.isalnum()):
+        print("Please provide an alphanumeric value")
+        name = input("Enter your name: ")
+
     time.sleep(1)
     print("Oh, another "+name+" have already perished upon the sight of me.",
           "\nWill you be the second?")
@@ -64,7 +75,6 @@ def main():
 
         choice = input(
             "Easy or hard? Enter 'easy' for Easy, 'hard' for Hard: ").upper()
-        # Check if they actually want to play, if so:
         if choice == 'EASY':
             start_game(wordsL1, HANGMANPICS_EASY, name)
         elif choice == 'HARD':
@@ -76,9 +86,12 @@ def main():
         else:
             print("Please enter (easy/hard) or (exit) to quit")
 
-# Starts the game, with chosen difficulty, as well
-# as the while loop containing the games functions
+
 def start_game(list_of_words, lives, name):
+    """
+    Starts the game, with chosen difficulty, as well
+    as the while loop containing the games functions
+    """
     game = hangman_game(list_of_words, lives, name)
     print("----------- THE GAME BEGINS -----------")
     display_info(game)
@@ -96,18 +109,27 @@ def start_game(list_of_words, lives, name):
             display_info(game)
             win_or_lose(game)
 
-# Checks whether a guess is equal to the word to be guessed
+
 def check_match(game, guess):
+    """
+    Checks whether a guess is equal to the word to be guessed
+    """
     return [i for i, ltr in enumerate(game.plain_text) if ltr == guess]
 
-# Displays a correctly guessed letter at the correct index
+
 def update_displayed_word(game, list):
+    """
+    Displays a correctly guessed letter at the correct index
+    """
     for idx in list:
         game.update_hidden(idx)
 
-# Allows the player to play again, letting them again choose the 
-# difficulty, and restart the game
+
 def play_again(game):
+    """
+    Allows the player to play again, letting them again choose the
+    difficulty, and restart the game
+    """
     play_again_question = input("Wanna play again? (y/n): ").upper()
     if play_again_question == "Y":
         return
@@ -115,11 +137,17 @@ def play_again(game):
         print(f"Sad to see you go, {game.name}.",
                "All things must come to an end.")
         exit(0)
+    else:
+        print("Incorrect value provided, please enter your reposnse again.\n")
+        play_again(game)
 
-# Checks whether or not the player has won or lost
-# Prints messages accordingly, as well as offers the player
-# to play again calling correct function
+
 def win_or_lose(game):
+    """
+    Checks whether or not the player has won or lost
+    Prints messages accordingly, as well as offers the player
+    to play again calling correct function
+    """
     if (game.hidden == game.plain_text):
         print(f"Congrats, you won! The word was {game.plain_text}")
         print("I guess there had to be a first...")
@@ -130,10 +158,13 @@ def win_or_lose(game):
         print(f"Another one to add to my collection!")
         play_again(game)
 
-# Validates the players input - makes sure it's alphabetical
-# Controls if the player wants to guess an entire word
-# Controls if the player guesses an already guessed letter/word
+
 def validate_input(game, guess):
+    """
+    Validates the players input - makes sure it's alphabetical
+    Controls if the player wants to guess an entire word
+    Controls if the player guesses an already guessed letter/word
+    """
     if not guess.isalpha():
         print("Please enter a letter [a, b, c ..]: ")
         return False
@@ -151,8 +182,11 @@ def validate_input(game, guess):
     else:
         return True
 
-# Controls whether or not a guessed word matches
+
 def check_matchWord(game, guess):
+    """
+    Controls whether or not a guessed word matches
+    """
     if (guess == game.plain_text):
         game.hidden = game.plain_text
         print(f"Congrats, you won! The word was {game.plain_text}")
@@ -163,9 +197,12 @@ def check_matchWord(game, guess):
         game.tries.append(guess)
         print(game.lives)
 
-# Displays the information needed for the flow of the game, such
-# as lives, the skull, heckles, and attempted incorrect words
+
 def display_info(game):
+    """
+    Displays the information needed for the flow of the game, such
+    as lives, the skull, heckles, and attempted incorrect words
+    """
     print("\n")
     print(game.displayed_image[-game.lives-1])
     print("\n")
