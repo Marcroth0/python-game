@@ -198,6 +198,7 @@ Pep8 validator testing:
 </details>
 
 
+
 ## Issues
 
 - Firstly I started writing the code for the game but realised quickly I wouldn't be able to make it upgradable, thus choosing to rethink the project and came up with classes. 
@@ -215,6 +216,9 @@ print("Many have come, none have left.",
 ```
     return [i for i, ltr in enumerate(game.plain_text) if ltr == guess]
 ```
+
+- Noticed that if you copy code directly from github via run.py and run it in pep8 it shows 
+an error "No newline at end of file" - however, when forked and in IDE:s the line is there as intended. 
 
 ## Unfixed Bugs
 
